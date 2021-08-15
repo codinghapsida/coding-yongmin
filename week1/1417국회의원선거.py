@@ -29,12 +29,34 @@ class MaxHeap:
         right = index*2+1
         max_index = index
 
-        if self.__data[max_index] < self.__data[left]:
+        if left < len(self.__data) and self.__data[max_index] < self.__data[left]:
             max_index = left
-        if self.__data[max_index] < self.__data[right]:
+        if right < len(self.__data) and self.__data[max_index] < self.__data[right]:
             max_index = right
         
         if max_index != index:
             self.__data[max_index], self.__data[index] = self.__data[index], self.__data[max_index]
             self.myHeapify(max_index)
-            
+
+
+heap = MaxHeap()
+vote = []
+vote.append(0)
+num = int(input())
+for i in range(1, num+1, 1):
+    v = int(input())
+    vote.append(v)
+    heap.insert(vote[i])
+temp = vote[1]
+
+i=0
+while 1:
+    max = heap.delete()
+    if max >= vote[1]:
+        max -= 1
+        vote[1] += 1
+        heap.insert(max)
+    else:
+        break
+    
+print(vote[1] - temp)
