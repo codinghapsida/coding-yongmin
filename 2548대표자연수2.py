@@ -1,41 +1,44 @@
 n = int(input())
 num = [0 for _ in range(n)]
-
 num = list(map(int, input().split()))
-total = sum(num)
-average = total//n
+num.sort()
 gap = []
+total = 0
+min_index = 0
+k = num[n//2]
 
 for i in range(n):
-    gap.append(abs(num[i] - average))
-min1 = sum(gap)
+    gap.append(abs(num[i] - k))
+    total += gap[i]
 
-k = average
-while k <= max(num):
+
+while k <= num[n-1]:
     k += 1
     temp = []
+    min2 = 0
     for i in range(n):
         temp.append(abs(num[i] - k))
-    min2 = sum(temp)
+        min2 += temp[i]
 
-    if min2 >= min1:
+    if min2 >= total:
         break
     else:
-        min1 = min2
+        total = min2
         min_index = k
 
-k = average
-while k >= min(num):
+k = num[n//2]
+while k >= num[0]:
     k -= 1
     temp = []
+    min2 = 0
     for i in range(n):
         temp.append(abs(num[i] - k))
-    min2 = sum(temp)
+        min2 += temp[i]
 
-    if min2 > min1:
+    if min2 > total:
         break
     else:
-        min1 = min2
-        min_index = k
-
+        total = min2
+        min_index = k   
+        
 print(min_index)
