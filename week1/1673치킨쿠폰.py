@@ -17,21 +17,23 @@ def calculate():
     c = []
 
     while 1:
-        str = input()
-        if str == "":
-            break
+        try:
+            str = input()
 
-        n1, k1 = str.split()
-        n1 = int(n1)
-        k1 = int(k1)
-        n.append(n1)
-        k.append(k1)
+            n1, k1 = str.split()
+            n1 = int(n1)
+            k1 = int(k1)
+            n.append(n1)
+            k.append(k1)
 
-        coupon = n[i]
-        chicken = miniCal(k[i], coupon)
-        c.append(chicken)
-        i += 1
-    return c
+            coupon = n[i]
+            chicken = miniCal(k[i], coupon)
+            c.append(chicken)
+            i += 1
+            
+        except:
+            return c
+    
 
 
 c = calculate()
