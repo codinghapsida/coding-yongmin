@@ -25,7 +25,7 @@ if rest >= money/2:
 else: print(price)
 
 
-# 파이썬
+# 백준 숏코딩 정답
 # candy, zero = map(int, input().split())
 # print(int(round(candy+1, -zero))) #파이썬의 반올림
 # 파이썬의 반올림은 반올림 하려는 수가 올림, 내림했을 때 동일하게 차이가 나는 경우에는 짝수 값으로 반올림 한다.
