@@ -12,3 +12,33 @@
 # 입력으로 첫 번째 수가 주어질 때, 이 수에서 시작하여 위의 규칙으로 만들어지는 최대 개수의 수들을 구하는 프로그램을 작성하시오.
 # 최대 개수의 수들이 여러 개일 때, 그중 하나의 수들만 출력하면 된다.
 
+def cal(n, temp, c):
+    if n-temp>temp:
+        c+=1
+        return c
+    else: 
+        temp2 = n-temp
+        c+=1
+        c = cal(temp, temp2, c)
+        return c
+
+n = int(input())
+max = [0, 0]
+for i in range(n//2, n+1, 1):
+    c = 2
+    c = cal(n, i, c)
+    if c > max[1]:
+        max[0] = i
+        max[1] = c
+
+print(max[1])
+print(n, max[0], end=' ')
+t1 = n
+t2 = max[0]
+while 1:
+    temp = t1 - t2
+    if temp<0: break
+    t1 = t2
+    t2 = temp
+    print(t2, end=' ')
+    
