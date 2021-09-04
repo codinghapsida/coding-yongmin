@@ -31,10 +31,12 @@ for i in range(n//2, n+1, 1):
         max[0] = i
         max[1] = c
 
+
 print(max[1])
 print(n, max[0], end=' ')
 t1 = n
 t2 = max[0]
+
 while 1:
     temp = t1 - t2
     if temp<0: break
